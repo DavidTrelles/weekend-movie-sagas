@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./MovieList.css";
 import { useHistory } from "react-router-dom";
@@ -10,15 +10,16 @@ function MovieList() {
     dispatch({ type: "FETCH_MOVIES" });
   }, []);
 
-  const handleClick = () => {
-    history.push("/MovieDetails");
-  };
-
   return (
     <main>
       <h1>MovieList</h1>
       <section className="movies">
         {movies.map((movie) => {
+          const handleClick = () => {
+            history.push("/MovieDetails");
+            dispatch({ type: "SET_MOVIE", payload: movie.id });
+          };
+
           return (
             <div key={movie.id}>
               <h3>{movie.title}</h3>
