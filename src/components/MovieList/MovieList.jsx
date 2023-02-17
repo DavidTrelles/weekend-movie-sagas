@@ -16,8 +16,8 @@ function MovieList() {
       <section className="movies">
         {movies.map((movie) => {
           const handleClick = () => {
+            dispatch({ type: "FETCH_MOVIE", payload: movie.id });
             history.push("/MovieDetails");
-            dispatch({ type: "SET_ID", payload: movie.id });
           };
 
           return (

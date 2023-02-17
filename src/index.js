@@ -29,7 +29,7 @@ function* fetchAllMovies() {
 }
 
 function* fetchOneMovie(action) {
-  // get all one movie from the DB
+  // get  one movie from the DB
   try {
     const movie = yield axios.get(`/api/movie/${action.payload}`);
     console.log("here's the get one:", movie.data);
