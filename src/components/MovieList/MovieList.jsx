@@ -17,6 +17,7 @@ function MovieList() {
         {movies.map((movie) => {
           const handleClick = () => {
             dispatch({ type: "FETCH_MOVIE", payload: movie.id });
+            dispatch({ type: "FETCH_GENRES", payload: movie.id });
             history.push("/MovieDetails");
           };
 

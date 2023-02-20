@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  console.log("hello from id request!", req.params.id);
+  console.log("hello from genre request!", req.params.id);
   const queryText = `SELECT "genres"."name" FROM "movies"
 JOIN "movies_genres" ON "movies_genres"."movie_id" = "movies"."id"
 JOIN "genres" ON "genres"."id" = "movies_genres"."genre_id"
