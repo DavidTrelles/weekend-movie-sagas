@@ -73,7 +73,7 @@ const genres = (state = [], action) => {
       return state;
   }
 };
-
+//used to store the movie that was selected
 const movie = (state = {}, action) => {
   if (action.type === "SET_MOVIE") {
     return action.payload;
@@ -96,6 +96,7 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
+//render to DOM
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={storeInstance}>
