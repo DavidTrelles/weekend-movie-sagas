@@ -41,6 +41,7 @@ function* fetchOneMovie(action) {
   }
 }
 function* fetchGenres(action) {
+  //get the genres for that movie from the db
   try {
     const genres = yield axios.get(`/api/genre/${action.payload}`);
     console.log("here's the genre: ", genres.data);
@@ -72,13 +73,7 @@ const genres = (state = [], action) => {
       return state;
   }
 };
-const movieId = (state = [], action) => {
-  if (action.type === "SET_ID") {
-    return action.payload;
-  } else {
-    return state;
-  }
-};
+
 const movie = (state = {}, action) => {
   if (action.type === "SET_MOVIE") {
     return action.payload;
@@ -92,7 +87,6 @@ const storeInstance = createStore(
   combineReducers({
     movies,
     genres,
-    movieId,
     movie,
   }),
   // Add sagaMiddleware to our store
