@@ -22,7 +22,7 @@ function MovieList() {
           };
 
           return (
-            <div key={movie.id}>
+            <div class="movie" key={movie.id}>
               <h3>{movie.title}</h3>
               <img src={movie.poster} alt={movie.title} onClick={handleClick} />
             </div>

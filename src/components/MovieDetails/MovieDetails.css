@@ -1,0 +1,14 @@
+#display {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightgrey;
+  width: 500px;
+  border: 15px solid rgb(32, 12, 123);
+  padding: 5px;
+}
+#desc {
+  margin: 40px;
+  padding: 40 px;
+  text-align: left;
+}

@@ -21,7 +21,7 @@ WHERE "movie_id" = $1`;
       res.send(result.rows);
     })
     .catch((err) => {
-      console.log("ERROR: Getting the movie", err);
+      console.log("ERROR: Getting the genres", err);
       res.sendStatus(500);
     });
 });

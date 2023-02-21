@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import "./MovieDetails.css";
 const MovieDetails = () => {
   const history = useHistory();
   const movie = useSelector((store) => store.movie);
@@ -11,15 +12,26 @@ const MovieDetails = () => {
   };
   return (
     <>
-      {movie.length > 0 && (
+      {genres.length > 0 && (
         <>
-          <h3>{movie[0].title}</h3>
-          <img src={movie[0].poster} alt={movie[0].title} />
-          <p>{movie[0].description}</p>
-          {/* <p>Genre{genres}</p> */}
+          <div id="display">
+            <h3>{movie[0].title}</h3>
+            <img src={movie[0].poster} alt={movie[0].title} />
+            <div id="desc">
+              <p>{movie[0].description}</p>
+            </div>
+            <div id="genre">
+              <p>
+                Genre:{" "}
+                {genres.map((genre) => (
+                  <div key={genre.id}>{genre.name}</div>
+                ))}
+              </p>
+            </div>
+            <button onClick={handleClick}>Go Back</button>
+          </div>
         </>
       )}
-      <button onClick={handleClick}>Go Back</button>
     </>
   );
 };
