@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
-
+//gets all the movies for the Movie List
 router.get("/", (req, res) => {
   const query = `SELECT * FROM movies ORDER BY "title" ASC`;
   pool
@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
       res.sendStatus(500);
     });
 });
+//selects a movie by id
 
 router.get("/:id", (req, res) => {
   console.log("hello from id request!", req.params.id);
