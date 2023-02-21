@@ -8,6 +8,7 @@ function MovieList() {
   const history = useHistory();
   useEffect(() => {
     dispatch({ type: "FETCH_MOVIES" });
+    // gets the movies on page load
   }, []);
 
   return (
@@ -15,7 +16,9 @@ function MovieList() {
       <h1>Movie List</h1>
       <section className="movies">
         {movies.map((movie) => {
+          //loops through movies and displays them on page
           const handleClick = () => {
+            //handles the click and makes the proper dispatches
             dispatch({ type: "FETCH_MOVIE", payload: movie.id });
             dispatch({ type: "FETCH_GENRES", payload: movie.id });
             history.push("/MovieDetails");
